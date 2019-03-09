@@ -4,6 +4,11 @@
  * and open the template in the editor.
  */
 package rxjava;
+ 
+import java.util.Arrays;
+import java.util.List;
+import rx.Observable;
+import rx.functions.Action1;
 
 /**
  *
@@ -16,6 +21,16 @@ public class RxJava {
      */
     public static void main(String[] args) {
         // TODO code application logic here
+        List<String> elements = Arrays.asList("One", "Two", "Three", "Four");
+        Observable<String> observable = Observable.from(elements);
+
+        observable.subscribe(new Action1<String>() {  
+            @Override
+            public void call(String element) {
+                System.out.println(element); 
+            }
+        });
+
     }
-    
+
 }
